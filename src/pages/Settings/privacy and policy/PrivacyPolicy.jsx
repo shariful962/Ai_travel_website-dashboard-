@@ -10,7 +10,6 @@
 
 // export default PrivacyPolicy
 
-import { h1 } from "framer-motion/client";
 import React, { useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import ReactQuill from "react-quill-new";

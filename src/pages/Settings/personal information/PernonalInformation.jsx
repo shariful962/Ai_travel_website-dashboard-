@@ -192,7 +192,7 @@ const PersonalInformation = () => {
     <div className="px-4">
       <div className="max-w-5xl border py-6 px-6 mx-auto">
         {/* HEADER */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
           <div className="flex items-center">
             <IoArrowBack
               className="text-xl mr-2 cursor-pointer"
@@ -205,7 +205,7 @@ const PersonalInformation = () => {
 
           <button
             onClick={handleEditToggle}
-            className="flex items-center gap-x-3 bg-Primary px-7 py-2.5 rounded-lg text-white"
+            className="flex items-center gap-x-3 bg-Primary px-7 py-2.5 rounded-lg text-white w-max mt-4 md:mt-0 cursor-pointer"
           >
             {!isEditing && <FiEdit />}
             {isEditing ? "Save Change" : "Edit Profile"}
@@ -228,10 +228,11 @@ const PersonalInformation = () => {
               <p className="text-2xl text-[#1F1D1D]">Admin</p>
 
               {/* Image Edit Button */}
-              {isEditing && (
+            <div>
+                {isEditing && (
                 <label
                   htmlFor="imageUpload"
-                  className="absolute bottom-0 right-1 bg-white rounded-full p-2 shadow-lg cursor-pointer"
+                  className="absolute bottom-16 right-0 bg-white rounded-full p-2 shadow-lg cursor-pointer"
                 >
                   <IoCamera className="text-2xl text-gray-700" />
                 </label>
@@ -243,6 +244,7 @@ const PersonalInformation = () => {
                 className="hidden"
                 onChange={handleImageChange}
               />
+            </div>
             </div>
           </div>
 
