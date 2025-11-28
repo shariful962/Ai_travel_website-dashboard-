@@ -15,6 +15,8 @@ import ChangePassword from "../pages/Settings/change password/ChangePassword";
 import TermsConditions from "../pages/Settings/terms & conditions/TermsConditions";
 import PrivacyPolicy from "../pages/Settings/privacy and policy/PrivacyPolicy";
 import FAQ from "../pages/Settings/faq/FAQ";
+// import SupportLayout from "../pages/support/layout/SupportLayout";
+
 
 
 export const router = createBrowserRouter([

@@ -43,9 +43,9 @@ const ComposeModal = ({ open, onClose }) => {
     setFiles([...files, ...Array.from(e.target.files)]);
   };
 
-  const handleSend = ()=>{
-    console.log("button click")
-  }
+  const handleSend = () => {
+    console.log("button click");
+  };
 
   return (
     <div className="fixed inset-0 z-[999]">
@@ -121,10 +121,13 @@ const ComposeModal = ({ open, onClose }) => {
 
           {/* FOOTER */}
           <div className="flex justify-between items-center px-3 py-2 border-t bg-gray-50">
-            <button onClick={() => {
-    handleSend();
-    onClose();
-  }}  className="bg-green-600 text-white px-5 py-1 rounded-md hover:bg-green-700">
+            <button
+              onClick={() => {
+                handleSend();
+                onClose();
+              }}
+              className="bg-green-600 text-white px-5 py-1 rounded-md hover:bg-green-700"
+            >
               Send
             </button>
 
@@ -182,7 +185,3 @@ const ComposeModal = ({ open, onClose }) => {
 };
 
 export default ComposeModal;
-
-
-
-
