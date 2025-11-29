@@ -204,7 +204,7 @@ import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import ComposeModal from "./ComposeModal";
-import EmailView from "./EmailView";
+import EmailView from "./email view/EmailView";
 import { MdOutlineDrafts } from "react-icons/md";
 import { RiDraftLine } from "react-icons/ri";
 import { VscSend } from "react-icons/vsc";
