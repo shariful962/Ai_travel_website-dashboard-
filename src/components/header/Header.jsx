@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 
 const Header = ({ setSidebarOpen }) => {
   const navigate = useNavigate();
-  const [name, setName] = useState("Shariful Islam");
+  const [name, setName] = useState("DbMaria");
   // const [email, setEmail] = useState("cori@gmail.com");
   const [profileImage, setProfileImage] = useState(Icons.profilePic);
 
