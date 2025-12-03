@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import EmailView from "../email view/EmailView";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Pagination from "../../../common/Pagination";
 
 const Inbox = () => {
+  const navigate = useNavigate();
   const { emails, starred, toggleStar, searchTerm } = useOutletContext();
-  const [selectedEmail, setSelectedEmail] = useState(null);
+  // const [selectedEmail, setSelectedEmail] = useState(null);
   const [page, setPage] = useState(1);
 
   const perPage = 10;
@@ -22,13 +23,18 @@ const Inbox = () => {
   const start = (page - 1) * perPage;
   const currentEmails = filteredEmails.slice(start, start + perPage);
 
+  const handleEmailClick = (emailId)=>{
+    navigate(`/support/inbox/${emailId}`)
+  };
+
   return (
     <>
       <div className="flex-1 overflow-y-auto">
         {currentEmails.map((email) => (
           <div
             key={email.id}
-            onClick={() => setSelectedEmail(email)}
+            // onClick={() => setSelectedEmail(email)}
+            onClick={()=>handleEmailClick(email.id)}
             className="flex items-center border-b last:border-none border-gray-200 py-3 hover:bg-gray-50 rounded cursor-pointer"
           >
             <div
@@ -62,9 +68,9 @@ const Inbox = () => {
         onPageChange={setPage}
       />
 
-      <div className="mt-4 border-t pt-4">
+      {/* <div className="mt-4 border-t pt-4">
         <EmailView email={selectedEmail} />
-      </div>
+      </div> */}
     </>
   );
 };

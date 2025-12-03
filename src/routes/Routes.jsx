@@ -96,8 +96,8 @@ export const router = createBrowserRouter([
           { path: "starred", Component: Starred },
           { path: "drafts", Component: Draft },
           { path: "sent", Component: Sent },
-          
           { index: true, element: <Navigate to="inbox" replace /> },
+          { path: "inbox/:emailId", Component: EmailView },
         ],
       },
     ],

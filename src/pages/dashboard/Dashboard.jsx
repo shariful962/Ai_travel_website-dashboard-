@@ -115,7 +115,7 @@ const Dashboard = () => {
             <tbody>
               {users.length > 0 ? (
                 users.map((user)=>(
-                  <tr>
+                  <tr key={user.id}>
                     <td className='px-4 py-3'>{user.trId}</td>
                     <td className='px-4 py-3'>{user.username}</td>
                     <td className='hidden md:table-cell px-4 py-3'>${user.amount}</td>

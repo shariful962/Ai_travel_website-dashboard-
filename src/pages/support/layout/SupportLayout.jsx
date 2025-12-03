@@ -12,7 +12,7 @@ const emails = Array.from({ length: 15 }).map((_, i) => ({
   name: `Nelson Lane ${i + 1}`,
   email: `shariful${i+1}@gmail.com`,
   subject: `subject ${i+1}`,
-  message: "Lorem ipsum perspiciatis unde omnis iste natus",
+  message: `Lorem ipsum perspiciatis unde omnis iste natus ${i+1} Lorem ipsum perspiciatis unde omnis iste natus${i+1}`,
   time: "12:30 PM",
 }));
 
@@ -26,6 +26,7 @@ const SupportLayout = () => {
     const save = localStorage.getItem('starredEmails');
     return save ? JSON.parse(save) : [];
   });
+ 
 
   const toggleStar = (id) => {
     let updated;
@@ -37,6 +38,8 @@ const SupportLayout = () => {
     setStarred(updated);
     localStorage.setItem('starredEmails',JSON.stringify(updated))
   };
+
+
 
   return (
     <div className="p-4 relative">
@@ -108,7 +111,7 @@ const SupportLayout = () => {
 
         {/* Content */}
         <div className="flex-1 ml-5 bg-white rounded-xl shadow p-4 flex flex-col relative">
-          <Outlet context={{ emails, starred, toggleStar, searchTerm }} />
+          <Outlet context={{ emails, starred, toggleStar,  searchTerm }} />
         </div>
       </div>
 

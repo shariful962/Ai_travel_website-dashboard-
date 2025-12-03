@@ -1,14 +1,15 @@
 // with pagination logic
 
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import EmailView from "../email view/EmailView";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Pagination from "../../../common/Pagination";
 
 const Starred = () => {
-  const { emails, starred, toggleStar, searchTerm } = useOutletContext();
-  const [selectedEmail, setSelectedEmail] = useState(null);
+  const navigate = useNavigate();
+  const { emails, starred, toggleStar,  searchTerm } = useOutletContext();
+  // const [selectedEmail, setSelectedEmail] = useState(null);
 
   const filteredEmails = emails
     .filter((email) => starred.includes(email.id))
@@ -31,6 +32,9 @@ const Starred = () => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  const handleEmailClick = (emailId)=>{
+    navigate(`/support/inbox/${emailId}`)
+  }
 
   return (
     <>
@@ -45,7 +49,8 @@ const Starred = () => {
         {currentEmails.map((email) => (
           <div
             key={email.id}
-            onClick={() => setSelectedEmail(email)}
+            // onClick={() => setSelectedEmail(email)}
+            onClick={()=>handleEmailClick(email.id)}
             className="flex items-center border-b border-gray-200 py-3 hover:bg-gray-50 cursor-pointer"
           >
             <div
@@ -79,9 +84,9 @@ const Starred = () => {
         onPageChange={handlePageChange}
       />
 
-      <div className="mt-4 border-t pt-4">
+      {/* <div className="mt-4 border-t pt-4">
         <EmailView email={selectedEmail} />
-      </div>
+      </div> */}
     </>
   );
 };

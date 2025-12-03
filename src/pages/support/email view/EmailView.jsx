@@ -1,6 +1,13 @@
 import React from "react";
+import { useOutletContext } from "react-router";
+import { useParams } from "react-router";
 
-const EmailView = ({ email }) => {
+const EmailView = () => {
+  const {emailId} = useParams();
+  const {emails} = useOutletContext();
+  const email = emails.find((email) => email.id === Number(emailId) );
+
+
   if (!email) {
     return (
       <div className="flex items-center justify-center h-full text-gray-400">
@@ -35,7 +42,7 @@ const EmailView = ({ email }) => {
 
       {/* Footer Buttons */}
       <div className="flex gap-4 mt-6">
-        <button className="px-4 py-2 border rounded-full">Reply</button>
+        <button className="px-4 py-2 border rounded-full cursor-pointer">Reply</button>
         <button className="px-4 py-2 border rounded-full">Forward</button>
       </div>
     </div>
